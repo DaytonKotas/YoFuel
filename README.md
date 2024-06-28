@@ -1,2 +1,2 @@
 # YoFuel
-Business idea 
+HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB.
