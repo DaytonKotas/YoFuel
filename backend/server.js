@@ -13,7 +13,7 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("Error connecting to MongoDB:", err.message);+
+    console.error("Error connecting to MongoDB:", err.message);
   });
 
 app.get("/api/products", async (req, res) => {
