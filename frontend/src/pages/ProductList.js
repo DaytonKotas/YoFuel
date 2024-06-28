@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { CartContext } from "../CartContext";
 
 const Container = styled.div`
   display: flex;
@@ -32,8 +33,22 @@ const Price = styled.p`
   color: #61dafb;
 `;
 
+const Button = styled.button`
+  background: #61dafb;
+  color: #1c1c1c;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #21a1f1;
+  }
+`;
+
 function ProductList() {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -56,6 +71,7 @@ function ProductList() {
           <Title>{product.name}</Title>
           <Description>{product.description}</Description>
           <Price>${product.price}</Price>
+          <Button onClick={() => addToCart(product)}>Add to Cart</Button>
         </ProductCard>
       ))}
     </Container>
